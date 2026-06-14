@@ -1,31 +1,52 @@
 package com.api.rest.reactiva.franquiciaRPA.model;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 import java.util.Objects;
 
+
+@Data
 @Document(collection = "sucursal")
 public class Sucursal {
 
+    @Id
     private String id;
     private String nombre;
+    private String franquiciaId; //clave foranea
 
-    // Los productos se incrustan directamente en el documento de la sucursal
+
+    // Los productos se agregan en la consulta utilizando esta referencia
+    @DocumentReference(lookup = "{ 'sucurdalId': ?#{#self._id} }")
     private List<Producto> listaProductos;
 
     public Sucursal() {
     }
 
-    public Sucursal(String nombre, List<Producto> listaProductos) {
+    public Sucursal(String nombre, String franquiciaId, List<Producto> listaProductos) {
         this.nombre = nombre;
+        this.franquiciaId = franquiciaId;
         this.listaProductos = listaProductos;
     }
 
-    public Sucursal(String id, String nombre, List<Producto> listaProductos) {
+    public Sucursal(String id, List<Producto> listaProductos, String franquiciaId, String nombre) {
         this.id = id;
-        this.nombre = nombre;
         this.listaProductos = listaProductos;
+        this.franquiciaId = franquiciaId;
+        this.nombre = nombre;
+    }
+
+    public String getFranquiciaId() {
+        return franquiciaId;
+    }
+
+    public void setFranquiciaId(String franquiciaId) {
+        this.franquiciaId = franquiciaId;
     }
 
     public String getId() {

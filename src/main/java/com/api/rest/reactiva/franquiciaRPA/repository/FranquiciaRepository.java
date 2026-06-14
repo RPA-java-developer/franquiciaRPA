@@ -12,4 +12,6 @@ public interface FranquiciaRepository extends ReactiveMongoRepository<Franquicia
 
     //Mono<Contacto> findAllByTelefonoOrNombre(String telefonoOrNombre);
 
+
+
 }

@@ -11,20 +11,32 @@ public class Producto {
     private String id;
     private String nombre;
     private Integer stock;
+    private String sucurdalId;
 
 
     public Producto() {
     }
 
-    public Producto(String nombre, Integer stock) {
+
+    public Producto(String nombre, Integer stock, String sucurdalId) {
         this.nombre = nombre;
         this.stock = stock;
+        this.sucurdalId = sucurdalId;
     }
 
-    public Producto(String id, String nombre, Integer stock) {
+    public Producto(String id, String nombre, Integer stock, String sucurdalId) {
         this.id = id;
         this.nombre = nombre;
         this.stock = stock;
+        this.sucurdalId = sucurdalId;
+    }
+
+    public String getSucurdalId() {
+        return sucurdalId;
+    }
+
+    public void setSucurdalId(String sucurdalId) {
+        this.sucurdalId = sucurdalId;
     }
 
     public String getId() {

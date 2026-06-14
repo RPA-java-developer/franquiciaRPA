@@ -2,7 +2,9 @@ package com.api.rest.reactiva.franquiciaRPA.model;
 
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,10 +13,12 @@ import java.util.Objects;
 @Document(collection = "franquicia")
 public  @Data class Franquicia implements Serializable {
 
+    @Id
     private String id;
     private String nombre;
 
-    // Los productos se incrustan directamente en el documento de la sucursal
+    // Los productos se agregan en la consulta utilizando esta referencia
+    @DocumentReference(lookup = "{ 'franquiciaId': ?#{#self._id} }")
     private List<Sucursal> listaSucursales;
 
     public Franquicia() {

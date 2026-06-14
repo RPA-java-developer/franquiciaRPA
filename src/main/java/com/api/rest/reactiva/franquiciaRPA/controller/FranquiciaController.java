@@ -2,6 +2,7 @@ package com.api.rest.reactiva.franquiciaRPA.controller;
 
 
 import com.api.rest.reactiva.franquiciaRPA.dto.FranquiciaDto;
+import com.api.rest.reactiva.franquiciaRPA.dto.FranquiciaResponse;
 import com.api.rest.reactiva.franquiciaRPA.model.Franquicia;
 import com.api.rest.reactiva.franquiciaRPA.repository.FranquiciaRepository;
 import com.api.rest.reactiva.franquiciaRPA.services.FranquiciaService;
@@ -24,24 +25,35 @@ import java.util.concurrent.ExecutionException;
 public class FranquiciaController {
 
 
-
-
     private final FranquiciaService franquiciaService;
 
 
     @GetMapping("/franquicias")
     public Flux<Franquicia> listarFranquicias() {
-        Flux<Franquicia> franquiciaAll = franquiciaService.findAll();
-        return franquiciaAll;
+        Flux<Franquicia> listadeFranquicias = franquiciaService.findAll();
+        return listadeFranquicias;
     }
 
-
+    /*
     @GetMapping(value = "/franquicias/{id}")
-    public Mono<ResponseEntity<Franquicia>> obtenerContactoPorID(@PathVariable String id) {
+    public Mono<ResponseEntity<Franquicia>> obtenerFranquiciaPorID(@PathVariable String id) {
         return franquiciaService.findById(id)
                 .map(fraquiciaXid -> new ResponseEntity<>(fraquiciaXid, HttpStatus.OK))
                 .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+     */
+
+
+
+    @GetMapping(value = "/franquiciaCompleta/{id}")
+    public Mono<Franquicia> obtenerFranquiciaCompleta(@PathVariable String id) {
+        return franquiciaService.obtenerFranquiciaConSucursales(id);
+    }
+
+
+
+
+
 
     @PostMapping("/franquicias")
     public Mono<ResponseEntity<Franquicia>> guardarFranquicia(@RequestBody Franquicia franquicia) {
@@ -65,6 +77,13 @@ public class FranquiciaController {
     public Mono<Void> eliminarFranquicia(@PathVariable String id) {
         return franquiciaService.deleteById(id);
     }
+
+
+    @DeleteMapping(value = "/franquiciaCompleta/{id}")
+    public Mono<Void> eliminarFranquiciaCompleta(@PathVariable String id) {
+        return franquiciaService.deleteFranquiciaCompleta(id);
+    }
+
 
 
 }
