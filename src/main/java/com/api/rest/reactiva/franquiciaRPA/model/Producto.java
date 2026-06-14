@@ -1,2 +1,4 @@
-package com.api.rest.reactiva.franquiciaRPA.model;public class Producto {
+package com.api.rest.reactiva.franquiciaRPA.model;
+
+public class Producto {
 }
