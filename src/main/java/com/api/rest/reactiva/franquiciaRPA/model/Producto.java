@@ -11,32 +11,32 @@ public class Producto {
     private String id;
     private String nombre;
     private Integer stock;
-    private String sucurdalId;
+    private String sucursalId;
 
 
     public Producto() {
     }
 
 
-    public Producto(String nombre, Integer stock, String sucurdalId) {
+    public Producto(String nombre, Integer stock, String sucursalId) {
         this.nombre = nombre;
         this.stock = stock;
-        this.sucurdalId = sucurdalId;
+        this.sucursalId = sucursalId;
     }
 
-    public Producto(String id, String nombre, Integer stock, String sucurdalId) {
+    public Producto(String id, String nombre, Integer stock, String sucursalId) {
         this.id = id;
         this.nombre = nombre;
         this.stock = stock;
-        this.sucurdalId = sucurdalId;
+        this.sucursalId = sucursalId;
     }
 
-    public String getSucurdalId() {
-        return sucurdalId;
+    public String getSucursalId() {
+        return sucursalId;
     }
 
-    public void setSucurdalId(String sucurdalId) {
-        this.sucurdalId = sucurdalId;
+    public void setSucursalId(String sucurdalId) {
+        this.sucursalId = sucurdalId;
     }
 
     public String getId() {

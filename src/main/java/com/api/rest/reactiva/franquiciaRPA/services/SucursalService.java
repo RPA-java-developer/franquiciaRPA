@@ -10,10 +10,9 @@ import reactor.core.publisher.Mono;
 
 public interface SucursalService {
 
-
-
     // Lista las Sucursales
     Flux<SucursalDto> findAll();
+
 
     Mono<SucursalDto> save(Mono<SucursalDto> sucursalDtoMono);
 

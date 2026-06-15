@@ -27,8 +27,8 @@ public class SucursalController {
 
     @GetMapping("/sucursales")
     public Flux<SucursalDto> listarSucursales() {
-        Flux<SucursalDto> sucursalAll = sucursalService.findAll();
-        return sucursalAll;
+        Flux<SucursalDto> listaSucursalCompleta = sucursalService.findAll();
+        return listaSucursalCompleta;
     }
 
 
@@ -51,7 +51,7 @@ public class SucursalController {
 
 
 
-    // Delete Product using Id
+    // Delete Sucursal por Id
     @DeleteMapping("/sucursales/{id}")
     public Mono<Void> borrarSucursal(@PathVariable String id){
         return sucursalService.deleteById(id);

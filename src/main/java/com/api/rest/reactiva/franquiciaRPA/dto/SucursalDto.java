@@ -19,4 +19,10 @@ public class SucursalDto {
     private String franquiciaId;
     private List<Producto> listaProductos;
 
+
+
+
+
+
+
 }

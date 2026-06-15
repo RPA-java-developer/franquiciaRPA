@@ -12,6 +12,9 @@ import reactor.core.publisher.Mono;
 
 public interface FranquiciaService {
 
+
+        Flux<Franquicia> findAll();
+
         Mono<Franquicia> save(Franquicia franquicia);
 
         Mono<Franquicia> findById(String id);
@@ -20,8 +23,6 @@ public interface FranquiciaService {
 
         Mono<Franquicia> obtenerFranquiciaConSucursales(String franquiciaId);
 
-
-        Flux<Franquicia> findAll();
 
 
 
