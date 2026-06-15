@@ -1,6 +1,7 @@
 package com.api.rest.reactiva.franquiciaRPA.controller;
 
 import com.api.rest.reactiva.franquiciaRPA.dto.ProductoEstadistica;
+import com.api.rest.reactiva.franquiciaRPA.model.Producto;
 import com.api.rest.reactiva.franquiciaRPA.services.ProductAnalyticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,9 +19,21 @@ public class ProductAnalyticsController {
     @Autowired
     private ProductAnalyticsService analyticsService;
 
+    /*
     @GetMapping(value = "/productos", produces = MediaType.APPLICATION_NDJSON_VALUE)
     public Flux<ProductoEstadistica> getCategoryStats(@RequestParam(defaultValue = "0") double minPrice) {
         return analyticsService.getStatsByMinPrice(minPrice);
+    }
+    */
+
+    @GetMapping(value = "/ordenados", produces = MediaType.APPLICATION_NDJSON_VALUE)
+    public Flux<Producto> getListaOrdenadaDesc() {
+        return analyticsService.getProductsOrderedByPriceDesc();
+    }
+
+    @GetMapping(value = "/mayor", produces = MediaType.APPLICATION_NDJSON_VALUE)
+    public Flux<Producto> getListaMayor(@RequestParam(defaultValue = "0") String miId) {
+        return analyticsService.getProductsMayor(miId);
     }
 
 
