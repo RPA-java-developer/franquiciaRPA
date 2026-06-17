@@ -22,6 +22,7 @@ public class MongoConfig extends AbstractReactiveMongoConfiguration {
     @Value("${dbname}")
     private String dbName;
 
+
     @Override
     public MongoClient reactiveMongoClient() {
         return MongoClients.create();

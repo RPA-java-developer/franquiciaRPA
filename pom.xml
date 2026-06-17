@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.api.rest.reactiva</groupId>
 	<artifactId>franquiciaRPA</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<version>0.0.1</version>
+	<name>franquiciaRPA</name>
+	<description>Prueba Accenture</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -65,7 +65,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<scope>true</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<!--

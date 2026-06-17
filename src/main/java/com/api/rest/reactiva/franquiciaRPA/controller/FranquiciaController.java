@@ -45,7 +45,7 @@ public class FranquiciaController {
 
 
 
-    @GetMapping(value = "/franquiciaCompleta/{id}")
+    @GetMapping(value = "/franquicias/{id}")
     public Mono<Franquicia> obtenerFranquiciaCompleta(@PathVariable String id) {
         return franquiciaService.obtenerFranquiciaConSucursales(id);
     }
@@ -72,14 +72,14 @@ public class FranquiciaController {
 
     }
 
-
+    /*
     @DeleteMapping(value = "/franquicias/{id}")
     public Mono<Void> eliminarFranquicia(@PathVariable String id) {
         return franquiciaService.deleteById(id);
     }
+    */
 
-
-    @DeleteMapping(value = "/franquiciaCompleta/{id}")
+    @DeleteMapping(value = "/franquicia/{id}")
     public Mono<Void> eliminarFranquiciaCompleta(@PathVariable String id) {
         return franquiciaService.deleteFranquiciaCompleta(id);
     }
